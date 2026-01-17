@@ -23,40 +23,25 @@ export function HomeSection() {
 
   return (
     <div className="relative w-full">
-      {/* Hero Section with LiquidEther */}
+      {/* Hero Section with Particles */}
       <section className="relative h-screen w-full overflow-hidden">
-        {/* <LiquidEther
-          className="absolute inset-0"
-          style={{ width: "100%", height: "100%" }}
-          colors={['#5227FF', '#FF9FFC', '#B19EEF']}
-          mouseForce={20}
-          cursorSize={100}
-          isViscous={false}
-          viscous={30}
-          iterationsViscous={32}
-          iterationsPoisson={32}
-          resolution={0.5}
-          isBounce={false}
-          autoDemo={true}
-          autoSpeed={0.5}
-          autoIntensity={2.2}
-          takeoverDuration={0.25}
-          autoResumeDelay={1500}
-          autoRampDuration={0.6}
-        /> */}
-        <Particles
-          particleColors={['#ffffff', '#ffffff']}
-          particleCount={200}
-          particleSpread={10}
-          speed={0.1}
-          particleBaseSize={100}
-          moveParticlesOnHover={true}
-          alphaParticles={false}
-          disableRotation={false}
-        />
+        {/* Particles Background - Positioned absolutely to fill container */}
+        <div className="absolute inset-0 w-full h-full">
+          <Particles
+            particleColors={['#ffffff', '#ffffff']}
+            particleCount={200}
+            particleSpread={10}
+            speed={0.1}
+            particleBaseSize={100}
+            moveParticlesOnHover={true}
+            particleHoverFactor={1.5}
+            alphaParticles={false}
+            disableRotation={false}
+          />
+        </div>
 
         {/* Left Aligned Text Overlay */}
-        <div className="absolute inset-0 z-10 flex flex-col items-start justify-center pl-8 md:pl-16 lg:pl-24 gap-4">
+        <div className="absolute inset-0 z-10 flex flex-col items-start justify-center pl-8 md:pl-16 lg:pl-24 gap-4 pointer-events-none">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white select-none drop-shadow-[0_0_30px_rgba(0,0,0,0.5)]" style={{ fontFamily: 'var(--font-skateblade)' }}>
             <TextType
               text={[titleText]}
