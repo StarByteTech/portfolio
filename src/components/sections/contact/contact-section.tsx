@@ -16,16 +16,15 @@ const contactInfo = [
     title: "Email",
     value: "info@starbyte.dev",
     icon: "✉",
+    type: "email" as const,
+    href: "mailto:info@starbyte.dev",
   },
   {
-    title: "Location",
-    value: "Pakistan & UAE",
-    icon: "◉",
-  },
-  {
-    title: "Hours",
-    value: "Mon-Fri 9AM-6PM PKT",
+    title: "Schedule a Call",
+    value: "Book a free consultation",
     icon: "◷",
+    type: "button" as const,
+    href: "https://cal.com/daim-starbyte",
   },
 ];
 
@@ -269,22 +268,79 @@ export function ContactSection() {
               </div>
 
               <div className="space-y-4">
-                {contactInfo.map((info, index) => (
-                  <Card
-                    key={index}
-                    className="info-card p-6 bg-background/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-xl group cursor-pointer"
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="text-4xl group-hover:scale-110 transition-transform duration-300">
-                        {info.icon}
+                {contactInfo.map((info, index) => {
+                  // Button-style card for Schedule a Call
+                  if (info.type === "button" && info.href) {
+                    return (
+                      <a
+                        key={index}
+                        href={info.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block group transition-all duration-300 hover:scale-110 hover:-translate-y-2"
+                      >
+                        <Card
+                          className="info-card p-6 bg-background/50 backdrop-blur-sm border-border/50 group-hover:border-primary/50 transition-all duration-300 group-hover:shadow-2xl cursor-pointer"
+                        >
+                          <div className="flex items-start gap-4">
+                            <div className="text-4xl group-hover:scale-110 transition-transform duration-300">
+                              {info.icon}
+                            </div>
+                            <div className="flex-1">
+                              <h3 className="text-lg font-bold mb-3">{info.title}</h3>
+                              <div className="inline-block px-4 py-2 bg-white text-black rounded-lg font-medium group-hover:bg-white/90 transition-colors duration-200">
+                                {info.value}
+                              </div>
+                            </div>
+                          </div>
+                        </Card>
+                      </a>
+                    );
+                  }
+
+                  // Regular card with optional link (for Email)
+                  if (info.href) {
+                    return (
+                      <a
+                        key={index}
+                        href={info.href}
+                        className="block group transition-all duration-300 hover:scale-110 hover:-translate-y-2"
+                      >
+                        <Card
+                          className="info-card p-6 bg-background/50 backdrop-blur-sm border-border/50 group-hover:border-primary/50 transition-all duration-300 group-hover:shadow-xl cursor-pointer"
+                        >
+                          <div className="flex items-start gap-4">
+                            <div className="text-4xl group-hover:scale-110 transition-transform duration-300">
+                              {info.icon}
+                            </div>
+                            <div>
+                              <h3 className="text-lg font-semibold mb-1">{info.title}</h3>
+                              <p className="text-muted-foreground">{info.value}</p>
+                            </div>
+                          </div>
+                        </Card>
+                      </a>
+                    );
+                  }
+
+                  const CardContent = (
+                    <Card
+                      className="info-card p-6 bg-background/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-110 hover:-translate-y-2 hover:shadow-xl group cursor-pointer"
+                    >
+                      <div className="flex items-start gap-4">
+                        <div className="text-4xl group-hover:scale-110 transition-transform duration-300">
+                          {info.icon}
+                        </div>
+                        <div>
+                          <h3 className="text-lg font-semibold mb-1">{info.title}</h3>
+                          <p className="text-muted-foreground">{info.value}</p>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="text-lg font-semibold mb-1">{info.title}</h3>
-                        <p className="text-muted-foreground">{info.value}</p>
-                      </div>
-                    </div>
-                  </Card>
-                ))}
+                    </Card>
+                  );
+
+                  return <div key={index}>{CardContent}</div>;
+                })}
               </div>
 
               {/* Social Links Placeholder */}
