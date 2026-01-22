@@ -5,6 +5,8 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useCurveSwipe } from "@/components/animations/CurveSwipe";
 
 const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
@@ -12,6 +14,8 @@ export function Footer() {
   const footerRef = useRef<HTMLElement>(null);
   const ctx = useRef<gsap.Context | null>(null);
   const currentYear = new Date().getFullYear();
+  const { animateAndNavigate } = useCurveSwipe();
+  const pathname = usePathname();
 
   const navLinks = [
     { label: "Home", href: "/" },
@@ -27,8 +31,14 @@ export function Footer() {
     { label: "Dribbble", href: "#" },
   ];
 
+  // Reinitialize animations whenever the pathname changes
   useIsomorphicLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+
+    // Kill existing context
+    if (ctx.current) {
+      ctx.current.revert();
+    }
 
     // Small delay to ensure DOM is ready
     const timeoutId = setTimeout(() => {
@@ -36,55 +46,35 @@ export function Footer() {
         if (footerRef.current) {
           const elements = footerRef.current.querySelectorAll(".footer-animate");
 
-          gsap.fromTo(
-            elements,
-            {
-              y: 60,
-              opacity: 0,
+          // Reset elements
+          gsap.set(elements, { y: 60, opacity: 0 });
+
+          gsap.to(elements, {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: footerRef.current,
+              start: "top 90%",
+              toggleActions: "play none none reverse",
             },
-            {
-              y: 0,
-              opacity: 1,
-              duration: 0.8,
-              stagger: 0.1,
-              ease: "power3.out",
-              scrollTrigger: {
-                trigger: footerRef.current,
-                start: "top 90%",
-                toggleActions: "play none none reverse",
-              },
-            }
-          );
+          });
         }
       });
 
-      // Refresh ScrollTrigger after a short delay
-      setTimeout(() => {
-        ScrollTrigger.refresh();
-      }, 100);
-    }, 50);
+      // Multiple refresh attempts to ensure reliability
+      ScrollTrigger.refresh();
+      setTimeout(() => ScrollTrigger.refresh(), 100);
+      setTimeout(() => ScrollTrigger.refresh(), 300);
+    }, 100);
 
     return () => {
       clearTimeout(timeoutId);
       ctx.current?.revert();
     };
-  }, []);
-
-  // Additional effect to handle route changes
-  useEffect(() => {
-    const handleRouteChange = () => {
-      setTimeout(() => {
-        ScrollTrigger.refresh();
-      }, 100);
-    };
-
-    // Listen for window load and scroll events
-    window.addEventListener('load', handleRouteChange);
-
-    return () => {
-      window.removeEventListener('load', handleRouteChange);
-    };
-  }, []);
+  }, [pathname]); // Re-run whenever pathname changes
 
   return (
     <footer ref={footerRef} className="w-full bg-background border-t border-border/50">
@@ -110,6 +100,10 @@ export function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    animateAndNavigate(link.href, "bottom");
+                  }}
                   className="relative text-lg md:text-xl text-foreground/70 hover:text-foreground transition-colors duration-300 group"
                 >
                   <span className="relative">
@@ -125,6 +119,10 @@ export function Footer() {
           <div className="flex justify-start md:justify-end items-start">
             <Link
               href="/contact"
+              onClick={(e) => {
+                e.preventDefault();
+                animateAndNavigate("/contact", "bottom");
+              }}
               className="relative text-lg md:text-xl text-foreground/70 hover:text-foreground transition-colors duration-300 group"
             >
               <span className="relative">
@@ -157,7 +155,7 @@ export function Footer() {
 
           {/* Copyright */}
           <div className="text-sm md:text-base text-foreground/60 whitespace-nowrap">
-            ©{currentYear} All rights reserved.
+            © {currentYear} All rights reserved.
           </div>
         </div>
       </div>

@@ -35,7 +35,23 @@ export function ExpertiseSection() {
   const heroTextRef = useRef<HTMLHeadingElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const slidesWrapperRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const ctx = useRef<gsap.Context | null>(null);
+
+  // Initial load animation
+  useIsomorphicLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    if (containerRef.current) {
+      gsap.set(containerRef.current, { opacity: 0 });
+      gsap.to(containerRef.current, {
+        opacity: 1,
+        duration: 0.8,
+        ease: "power2.out",
+        delay: 0.2,
+      });
+    }
+  }, []);
 
   useIsomorphicLayoutEffect(() => {
     // Register plugin inside effect to ensure it runs on client
@@ -220,7 +236,7 @@ export function ExpertiseSection() {
   }, []);
 
   return (
-    <>
+    <div ref={containerRef}>
       {/* Horizontal Text Animation Section */}
       <section
         ref={sectionRef}
@@ -345,6 +361,6 @@ export function ExpertiseSection() {
         {/* Final spacer section to allow last slide to scroll properly */}
         <section className="h-screen bg-background" />
       </div>
-    </>
+    </div>
   );
 }

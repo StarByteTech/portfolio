@@ -24,6 +24,7 @@ export interface PillNavProps {
   pillTextColor?: string;
   onMobileMenuClick?: () => void;
   initialLoadAnimation?: boolean;
+  onNavigate?: (href: string, e: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
 const PillNav: React.FC<PillNavProps> = ({
@@ -38,7 +39,8 @@ const PillNav: React.FC<PillNavProps> = ({
   hoveredPillTextColor = '#060010',
   pillTextColor,
   onMobileMenuClick,
-  initialLoadAnimation = true
+  initialLoadAnimation = true,
+  onNavigate
 }) => {
   const pathname = usePathname();
   const resolvedActiveHref = activeHref || pathname;
@@ -110,7 +112,7 @@ const PillNav: React.FC<PillNavProps> = ({
     window.addEventListener('resize', onResize);
 
     if (document.fonts) {
-      document.fonts.ready.then(layout).catch(() => {});
+      document.fonts.ready.then(layout).catch(() => { });
     }
 
     const menu = mobileMenuRef.current;
@@ -263,6 +265,7 @@ const PillNav: React.FC<PillNavProps> = ({
             href={items[0].href}
             aria-label="Home"
             onMouseEnter={handleLogoEnter}
+            onClick={(e) => onNavigate?.(items[0].href, e)}
             role="menuitem"
             ref={el => {
               logoRef.current = el;
@@ -281,6 +284,7 @@ const PillNav: React.FC<PillNavProps> = ({
             href={items?.[0]?.href || '#'}
             aria-label="Home"
             onMouseEnter={handleLogoEnter}
+            onClick={(e) => onNavigate?.(items?.[0]?.href || '#', e)}
             ref={el => {
               logoRef.current = el;
             }}
@@ -373,6 +377,7 @@ const PillNav: React.FC<PillNavProps> = ({
                       aria-label={item.ariaLabel || item.label}
                       onMouseEnter={() => handleEnter(i)}
                       onMouseLeave={() => handleLeave(i)}
+                      onClick={(e) => onNavigate?.(item.href, e)}
                     >
                       {PillContent}
                     </Link>
@@ -385,6 +390,7 @@ const PillNav: React.FC<PillNavProps> = ({
                       aria-label={item.ariaLabel || item.label}
                       onMouseEnter={() => handleEnter(i)}
                       onMouseLeave={() => handleLeave(i)}
+                      onClick={(e) => onNavigate?.(item.href, e)}
                     >
                       {PillContent}
                     </a>
@@ -453,7 +459,10 @@ const PillNav: React.FC<PillNavProps> = ({
                     style={defaultStyle}
                     onMouseEnter={hoverIn}
                     onMouseLeave={hoverOut}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => {
+                      setIsMobileMenuOpen(false);
+                      onNavigate?.(item.href, e);
+                    }}
                   >
                     {item.label}
                   </Link>
@@ -464,7 +473,10 @@ const PillNav: React.FC<PillNavProps> = ({
                     style={defaultStyle}
                     onMouseEnter={hoverIn}
                     onMouseLeave={hoverOut}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => {
+                      setIsMobileMenuOpen(false);
+                      onNavigate?.(item.href, e);
+                    }}
                   >
                     {item.label}
                   </a>
