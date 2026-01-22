@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { gsap } from 'gsap';
+import { useHoverSound } from '@/lib/useHoverSound';
 
 export type PillNavItem = {
   label: string;
@@ -55,6 +56,7 @@ const PillNav: React.FC<PillNavProps> = ({
   const mobileMenuRef = useRef<HTMLDivElement | null>(null);
   const navItemsRef = useRef<HTMLDivElement | null>(null);
   const logoRef = useRef<HTMLAnchorElement | HTMLElement | null>(null);
+  const playHoverSound = useHoverSound();
 
   useEffect(() => {
     const layout = () => {
@@ -147,6 +149,7 @@ const PillNav: React.FC<PillNavProps> = ({
   }, [items, ease, initialLoadAnimation]);
 
   const handleEnter = (i: number) => {
+    playHoverSound();
     const tl = tlRefs.current[i];
     if (!tl) return;
     activeTweenRefs.current[i]?.kill();
@@ -169,6 +172,7 @@ const PillNav: React.FC<PillNavProps> = ({
   };
 
   const handleLogoEnter = () => {
+    playHoverSound();
     const img = logoImgRef.current;
     if (!img) return;
     logoTweenRef.current?.kill();

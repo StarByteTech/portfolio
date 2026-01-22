@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { gsap } from "gsap";
-import LiquidEther from "@/components/animations/LiquidEther";
 import TextType from "@/components/animations/TextType";
 import Particles from "@/components/animations/Particles";
 

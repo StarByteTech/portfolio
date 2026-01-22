@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import { Header } from "@/components/layout/header";
-import { Footer } from "@/components/layout/footer";
+import { ConditionalFooter } from "@/components/layout/conditional-footer";
 import { CurveSwipeProvider } from "@/components/animations/CurveSwipe";
 import "./globals.css";
 
@@ -46,7 +46,7 @@ export default function RootLayout({
         <CurveSwipeProvider>
           <Header />
           <main>{children}</main>
-          <Footer />
+          <ConditionalFooter />
         </CurveSwipeProvider>
       </body>
     </html>

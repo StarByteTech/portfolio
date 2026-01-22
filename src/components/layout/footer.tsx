@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCurveSwipe } from "@/components/animations/CurveSwipe";
+import { useHoverSound } from "@/lib/useHoverSound";
 
 const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
@@ -16,6 +17,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
   const { animateAndNavigate } = useCurveSwipe();
   const pathname = usePathname();
+  const playHoverSound = useHoverSound();
 
   const navLinks = [
     { label: "Home", href: "/" },
@@ -104,6 +106,7 @@ export function Footer() {
                     e.preventDefault();
                     animateAndNavigate(link.href, "bottom");
                   }}
+                  onMouseEnter={playHoverSound}
                   className="relative text-lg md:text-xl text-foreground/70 hover:text-foreground transition-colors duration-300 group"
                 >
                   <span className="relative">
@@ -123,6 +126,7 @@ export function Footer() {
                 e.preventDefault();
                 animateAndNavigate("/contact", "bottom");
               }}
+              onMouseEnter={playHoverSound}
               className="relative text-lg md:text-xl text-foreground/70 hover:text-foreground transition-colors duration-300 group"
             >
               <span className="relative">
@@ -143,6 +147,7 @@ export function Footer() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
+                onMouseEnter={playHoverSound}
                 className="relative text-sm md:text-base text-foreground/60 hover:text-foreground transition-colors duration-300 group"
               >
                 <span className="relative">

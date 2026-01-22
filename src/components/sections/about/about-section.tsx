@@ -8,6 +8,7 @@ import FlowingMenu from "@/components/animations/FlowingMenu";
 import DecryptedText from "@/components/animations/DecryptedText";
 import LiquidEther from "@/components/animations/LiquidEther";
 import GravityText from "@/components/animations/GravityText";
+import { useHoverSound } from "@/lib/useHoverSound";
 
 const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
@@ -51,6 +52,7 @@ export function AboutSection() {
   const valuesRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const ctx = useRef<gsap.Context | null>(null);
+  const playHoverSound = useHoverSound();
 
   useIsomorphicLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -376,6 +378,7 @@ export function AboutSection() {
           </p>
           <a
             href="/contact"
+            onMouseEnter={playHoverSound}
             className="inline-block px-8 py-4 bg-primary text-primary-foreground rounded-full text-lg font-semibold hover:scale-105 transition-transform duration-300 hover:shadow-2xl"
           >
             Get In Touch

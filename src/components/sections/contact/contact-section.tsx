@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useHoverSound } from "@/lib/useHoverSound";
 
 const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
@@ -33,6 +34,7 @@ export function ContactSection() {
   const formRef = useRef<HTMLFormElement>(null);
   const infoRef = useRef<HTMLDivElement>(null);
   const ctx = useRef<gsap.Context | null>(null);
+  const playHoverSound = useHoverSound();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -245,6 +247,7 @@ export function ContactSection() {
                   type="submit"
                   size="lg"
                   className="w-full group relative overflow-hidden"
+                  onMouseEnter={playHoverSound}
                 >
                   <span className="relative z-10">Send Message</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -277,6 +280,7 @@ export function ContactSection() {
                         href={info.href}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onMouseEnter={playHoverSound}
                         className="block group transition-all duration-300 hover:scale-110 hover:-translate-y-2"
                       >
                         <Card
@@ -304,6 +308,7 @@ export function ContactSection() {
                       <a
                         key={index}
                         href={info.href}
+                        onMouseEnter={playHoverSound}
                         className="block group transition-all duration-300 hover:scale-110 hover:-translate-y-2"
                       >
                         <Card
@@ -350,6 +355,7 @@ export function ContactSection() {
                   {["LinkedIn", "Twitter", "Instagram", "Dribbble"].map((social, index) => (
                     <div
                       key={index}
+                      onMouseEnter={playHoverSound}
                       className="w-12 h-12 rounded-full bg-foreground/5 hover:bg-foreground/10 flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-lg"
                     >
                       <span className="text-xs font-semibold">{social[0]}</span>
