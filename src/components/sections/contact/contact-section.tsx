@@ -127,17 +127,17 @@ export function ContactSection() {
   return (
     <div className="w-full overflow-hidden">
       {/* Hero Section */}
-      <section ref={heroRef} className="min-h-screen flex items-center justify-center px-4 py-20">
+      <section ref={heroRef} className="min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 py-16 sm:py-20">
         <div className="container mx-auto max-w-5xl text-center">
           <h1
-            className="hero-animate text-5xl md:text-7xl lg:text-8xl font-bold mb-8"
+            className="hero-animate text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 sm:mb-8 leading-tight"
             style={{ fontFamily: "var(--font-skateblade)" }}
           >
             Let's Create
             <br />
             Something Amazing
           </h1>
-          <p className="hero-animate text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="hero-animate text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4">
             Have a project in mind? We'd love to hear about it. Share your vision, and let's explore how we can
             bring it to life together.
           </p>
@@ -145,13 +145,13 @@ export function ContactSection() {
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-32 px-4">
+      <section className="py-16 sm:py-24 md:py-32 px-4 sm:px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 sm:gap-20 md:gap-24 lg:gap-16">
             {/* Form */}
             <div>
               <h2
-                className="text-3xl md:text-5xl font-bold mb-8"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8"
                 style={{ fontFamily: "var(--font-skateblade)" }}
               >
                 Send Us a Message
@@ -256,15 +256,15 @@ export function ContactSection() {
             </div>
 
             {/* Contact Info */}
-            <div ref={infoRef} className="space-y-8">
+            <div ref={infoRef} className="space-y-6 sm:space-y-8">
               <div>
                 <h2
-                  className="text-3xl md:text-5xl font-bold mb-8"
+                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8"
                   style={{ fontFamily: "var(--font-skateblade)" }}
                 >
                   Connect With Us
                 </h2>
-                <p className="text-lg text-muted-foreground mb-12">
+                <p className="text-base sm:text-lg text-muted-foreground mb-8 sm:mb-10 md:mb-12">
                   Whether you have a question, a project idea, or just want to say hello, we're here and ready to
                   chat.
                 </p>
@@ -284,15 +284,15 @@ export function ContactSection() {
                         className="block group transition-all duration-300 hover:scale-110 hover:-translate-y-2"
                       >
                         <Card
-                          className="info-card p-6 bg-background/50 backdrop-blur-sm border-border/50 group-hover:border-primary/50 transition-all duration-300 group-hover:shadow-2xl cursor-pointer"
+                          className="info-card p-4 sm:p-5 md:p-6 bg-background/50 backdrop-blur-sm border-border/50 group-hover:border-primary/50 transition-all duration-300 group-hover:shadow-2xl cursor-pointer"
                         >
-                          <div className="flex items-start gap-4">
-                            <div className="text-4xl group-hover:scale-110 transition-transform duration-300">
+                          <div className="flex items-start gap-3 sm:gap-4">
+                            <div className="text-3xl sm:text-4xl group-hover:scale-110 transition-transform duration-300">
                               {info.icon}
                             </div>
                             <div className="flex-1">
-                              <h3 className="text-lg font-bold mb-3">{info.title}</h3>
-                              <div className="inline-block px-4 py-2 bg-white text-black rounded-lg font-medium group-hover:bg-white/90 transition-colors duration-200">
+                              <h3 className="text-base sm:text-lg font-bold mb-2 sm:mb-3">{info.title}</h3>
+                              <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-white text-black rounded-lg text-sm sm:text-base font-medium group-hover:bg-white/90 transition-colors duration-200">
                                 {info.value}
                               </div>
                             </div>
@@ -312,15 +312,15 @@ export function ContactSection() {
                         className="block group transition-all duration-300 hover:scale-110 hover:-translate-y-2"
                       >
                         <Card
-                          className="info-card p-6 bg-background/50 backdrop-blur-sm border-border/50 group-hover:border-primary/50 transition-all duration-300 group-hover:shadow-xl cursor-pointer"
+                          className="info-card p-4 sm:p-5 md:p-6 bg-background/50 backdrop-blur-sm border-border/50 group-hover:border-primary/50 transition-all duration-300 group-hover:shadow-xl cursor-pointer"
                         >
-                          <div className="flex items-start gap-4">
-                            <div className="text-4xl group-hover:scale-110 transition-transform duration-300">
+                          <div className="flex items-start gap-3 sm:gap-4">
+                            <div className="text-3xl sm:text-4xl group-hover:scale-110 transition-transform duration-300">
                               {info.icon}
                             </div>
                             <div>
-                              <h3 className="text-lg font-semibold mb-1">{info.title}</h3>
-                              <p className="text-muted-foreground">{info.value}</p>
+                              <h3 className="text-base sm:text-lg font-semibold mb-1">{info.title}</h3>
+                              <p className="text-sm sm:text-base text-muted-foreground break-all">{info.value}</p>
                             </div>
                           </div>
                         </Card>
@@ -330,15 +330,15 @@ export function ContactSection() {
 
                   const CardContent = (
                     <Card
-                      className="info-card p-6 bg-background/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-110 hover:-translate-y-2 hover:shadow-xl group cursor-pointer"
+                      className="info-card p-4 sm:p-5 md:p-6 bg-background/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-110 hover:-translate-y-2 hover:shadow-xl group cursor-pointer"
                     >
-                      <div className="flex items-start gap-4">
-                        <div className="text-4xl group-hover:scale-110 transition-transform duration-300">
+                      <div className="flex items-start gap-3 sm:gap-4">
+                        <div className="text-3xl sm:text-4xl group-hover:scale-110 transition-transform duration-300">
                           {info.icon}
                         </div>
                         <div>
-                          <h3 className="text-lg font-semibold mb-1">{info.title}</h3>
-                          <p className="text-muted-foreground">{info.value}</p>
+                          <h3 className="text-base sm:text-lg font-semibold mb-1">{info.title}</h3>
+                          <p className="text-sm sm:text-base text-muted-foreground">{info.value}</p>
                         </div>
                       </div>
                     </Card>
@@ -349,48 +349,48 @@ export function ContactSection() {
               </div>
 
               {/* Social Links */}
-              <div className="pt-8">
-                <h3 className="text-xl font-semibold mb-4">Follow Our Journey</h3>
-                <div className="flex gap-4">
+              <div className="pt-6 sm:pt-8">
+                <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Follow Our Journey</h3>
+                <div className="flex flex-wrap gap-3 sm:gap-4">
                   <a
                     href="https://www.instagram.com/star.byte/"
                     target="_blank"
                     rel="noopener noreferrer"
                     onMouseEnter={playHoverSound}
-                    className="w-12 h-12 rounded-full bg-foreground/5 hover:bg-foreground/10 flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-lg group"
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-foreground/5 hover:bg-foreground/10 flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-lg group"
                     aria-label="Instagram"
                   >
-                    <IconBrandInstagram className="w-5 h-5 text-foreground/70 group-hover:text-foreground transition-colors" />
+                    <IconBrandInstagram className="w-4 h-4 sm:w-5 sm:h-5 text-foreground/70 group-hover:text-foreground transition-colors" />
                   </a>
                   <a
                     href="https://threads.com/@star.byte"
                     target="_blank"
                     rel="noopener noreferrer"
                     onMouseEnter={playHoverSound}
-                    className="w-12 h-12 rounded-full bg-foreground/5 hover:bg-foreground/10 flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-lg group"
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-foreground/5 hover:bg-foreground/10 flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-lg group"
                     aria-label="Threads"
                   >
-                    <IconBrandThreads className="w-5 h-5 text-foreground/70 group-hover:text-foreground transition-colors" />
+                    <IconBrandThreads className="w-4 h-4 sm:w-5 sm:h-5 text-foreground/70 group-hover:text-foreground transition-colors" />
                   </a>
                   <a
                     href="https://www.linkedin.com/company/starbyte-tech"
                     target="_blank"
                     rel="noopener noreferrer"
                     onMouseEnter={playHoverSound}
-                    className="w-12 h-12 rounded-full bg-foreground/5 hover:bg-foreground/10 flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-lg group"
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-foreground/5 hover:bg-foreground/10 flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-lg group"
                     aria-label="LinkedIn"
                   >
-                    <IconBrandLinkedin className="w-5 h-5 text-foreground/70 group-hover:text-foreground transition-colors" />
+                    <IconBrandLinkedin className="w-4 h-4 sm:w-5 sm:h-5 text-foreground/70 group-hover:text-foreground transition-colors" />
                   </a>
                   <a
                     href="https://dribbble.com/starbyte-tech"
                     target="_blank"
                     rel="noopener noreferrer"
                     onMouseEnter={playHoverSound}
-                    className="w-12 h-12 rounded-full bg-foreground/5 hover:bg-foreground/10 flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-lg group"
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-foreground/5 hover:bg-foreground/10 flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-lg group"
                     aria-label="Dribbble"
                   >
-                    <IconBrandDribbble className="w-5 h-5 text-foreground/70 group-hover:text-foreground transition-colors" />
+                    <IconBrandDribbble className="w-4 h-4 sm:w-5 sm:h-5 text-foreground/70 group-hover:text-foreground transition-colors" />
                   </a>
                 </div>
               </div>

@@ -80,9 +80,9 @@ export function Footer() {
 
   return (
     <footer ref={footerRef} className="w-full bg-background border-t border-border/50">
-      <div className="w-full px-8 md:px-16 lg:px-24 py-20">
+      <div className="w-full px-4 sm:px-6 md:px-12 lg:px-20 xl:px-24 py-12 sm:py-16 md:py-20">
         {/* Top Section: Company Name - Full Width */}
-        <div className="footer-animate mb-16 w-full">
+        <div className="footer-animate mb-10 sm:mb-12 md:mb-16 w-full">
           <Image
             src="/logo/text-white.svg"
             alt="STARBYTE TECHNOLOGIES"
@@ -94,10 +94,10 @@ export function Footer() {
         </div>
 
         {/* Middle Section: Nav Links (Left) + CTA (Right) - Horizontal */}
-        <div className="footer-animate grid md:grid-cols-2 gap-8 mb-28 md:mb-32">
+        <div className="footer-animate grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-16 sm:mb-20 md:mb-28 lg:mb-32">
           {/* Navigation Links - Horizontal */}
           <div>
-            <nav className="flex flex-wrap gap-6 md:gap-8">
+            <nav className="flex flex-wrap gap-4 sm:gap-5 md:gap-6 lg:gap-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -107,11 +107,11 @@ export function Footer() {
                     animateAndNavigate(link.href, "bottom");
                   }}
                   onMouseEnter={playHoverSound}
-                  className="relative text-lg md:text-xl text-foreground/70 hover:text-foreground transition-colors duration-300 group"
+                  className="relative text-base sm:text-lg md:text-xl text-foreground/70 hover:text-foreground transition-colors duration-300 group"
                 >
                   <span className="relative">
                     {link.label}
-                    <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-foreground group-hover:w-full transition-all duration-500 ease-out" />
+                    <span className="absolute left-0 bottom-0 w-0 h-[1.5px] sm:h-[2px] bg-foreground group-hover:w-full transition-all duration-500 ease-out" />
                   </span>
                 </Link>
               ))}
@@ -127,20 +127,20 @@ export function Footer() {
                 animateAndNavigate("/contact", "bottom");
               }}
               onMouseEnter={playHoverSound}
-              className="relative text-lg md:text-xl text-foreground/70 hover:text-foreground transition-colors duration-300 group"
+              className="relative text-base sm:text-lg md:text-xl text-foreground/70 hover:text-foreground transition-colors duration-300 group"
             >
               <span className="relative">
                 Want to discuss a project? Click here
-                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-foreground group-hover:w-full transition-all duration-500 ease-out" />
+                <span className="absolute left-0 bottom-0 w-0 h-[1.5px] sm:h-[2px] bg-foreground group-hover:w-full transition-all duration-500 ease-out" />
               </span>
             </Link>
           </div>
         </div>
 
         {/* Bottom Section: Social Links (Left) + Copyright (Right) */}
-        <div className="footer-animate flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
+        <div className="footer-animate flex flex-col md:flex-row justify-between items-start md:items-end gap-6 sm:gap-8">
           {/* Social Links - Horizontal */}
-          <div className="flex flex-wrap gap-6 md:gap-8">
+          <div className="flex flex-wrap gap-4 sm:gap-5 md:gap-6 lg:gap-8">
             {socialLinks.map((social) => (
               <a
                 key={social.label}
@@ -159,7 +159,7 @@ export function Footer() {
           </div>
 
           {/* Copyright */}
-          <div className="text-sm md:text-base text-foreground/60 whitespace-nowrap">
+          <div className="text-xs sm:text-sm md:text-base text-foreground/60">
             © {currentYear} All rights reserved.
           </div>
         </div>

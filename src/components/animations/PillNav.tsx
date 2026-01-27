@@ -58,6 +58,25 @@ const PillNav: React.FC<PillNavProps> = ({
   const logoRef = useRef<HTMLAnchorElement | HTMLElement | null>(null);
   const playHoverSound = useHoverSound();
 
+  // Reset mobile menu state when pathname changes
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+
+    // Reset hamburger animation
+    const hamburger = hamburgerRef.current;
+    if (hamburger) {
+      const lines = hamburger.querySelectorAll('.hamburger-line');
+      gsap.to(lines[0], { rotation: 0, y: 0, duration: 0.3, ease });
+      gsap.to(lines[1], { rotation: 0, y: 0, duration: 0.3, ease });
+    }
+
+    // Reset menu visibility
+    const menu = mobileMenuRef.current;
+    if (menu) {
+      gsap.set(menu, { visibility: 'hidden', opacity: 0, y: 10 });
+    }
+  }, [pathname, ease]);
+
   useEffect(() => {
     const layout = () => {
       circleRefs.current.forEach(circle => {
@@ -258,9 +277,9 @@ const PillNav: React.FC<PillNavProps> = ({
   } as React.CSSProperties;
 
   return (
-    <div className="absolute top-[1em] z-[1000] w-full left-1/2 -translate-x-1/2">
+    <div className="absolute top-[0.75em] sm:top-[1em] z-[1000] w-full left-1/2 -translate-x-1/2 px-2 sm:px-4">
       <nav
-        className={`w-max mx-auto flex items-center justify-center box-border px-4 ${className}`}
+        className={`w-full sm:w-max mx-auto flex items-center justify-between sm:justify-center box-border px-2 sm:px-4 ${className}`}
         aria-label="Primary"
         style={cssVars}
       >
@@ -410,7 +429,7 @@ const PillNav: React.FC<PillNavProps> = ({
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
           aria-expanded={isMobileMenuOpen}
-          className="md:hidden rounded-full border-0 flex flex-col items-center justify-center gap-1 cursor-pointer p-0 relative"
+          className="md:hidden rounded-full border-0 flex flex-col items-center justify-center gap-1 cursor-pointer p-0 relative flex-shrink-0"
           style={{
             width: 'var(--nav-h)',
             height: 'var(--nav-h)',
@@ -418,11 +437,11 @@ const PillNav: React.FC<PillNavProps> = ({
           }}
         >
           <span
-            className="hamburger-line w-4 h-0.5 rounded origin-center transition-all duration-[10ms] ease-[cubic-bezier(0.25,0.1,0.25,1)]"
+            className="hamburger-line w-3 sm:w-4 h-0.5 rounded origin-center transition-all duration-[10ms] ease-[cubic-bezier(0.25,0.1,0.25,1)]"
             style={{ background: 'var(--pill-bg, #fff)' }}
           />
           <span
-            className="hamburger-line w-4 h-0.5 rounded origin-center transition-all duration-[10ms] ease-[cubic-bezier(0.25,0.1,0.25,1)]"
+            className="hamburger-line w-3 sm:w-4 h-0.5 rounded origin-center transition-all duration-[10ms] ease-[cubic-bezier(0.25,0.1,0.25,1)]"
             style={{ background: 'var(--pill-bg, #fff)' }}
           />
         </button>
@@ -430,13 +449,13 @@ const PillNav: React.FC<PillNavProps> = ({
 
       <div
         ref={mobileMenuRef}
-        className="md:hidden absolute top-[3em] left-4 right-4 rounded-[27px] shadow-[0_8px_32px_rgba(0,0,0,0.12)] z-[998] origin-top"
+        className="md:hidden absolute top-[2.5em] sm:top-[3em] left-2 right-2 sm:left-4 sm:right-4 rounded-[20px] sm:rounded-[27px] shadow-[0_8px_32px_rgba(0,0,0,0.12)] z-[998] origin-top"
         style={{
           ...cssVars,
           background: 'var(--base, #f0f0f0)'
         }}
       >
-        <ul className="list-none m-0 p-[3px] flex flex-col gap-[3px]">
+        <ul className="list-none m-0 p-[2px] sm:p-[3px] flex flex-col gap-[2px] sm:gap-[3px]">
           {items.map(item => {
             const defaultStyle: React.CSSProperties = {
               background: 'var(--pill-bg, #fff)',
@@ -452,7 +471,7 @@ const PillNav: React.FC<PillNavProps> = ({
             };
 
             const linkClasses =
-              'block py-3 px-4 text-[16px] font-medium rounded-[50px] transition-all duration-200 ease-[cubic-bezier(0.25,0.1,0.25,1)]';
+              'block py-2.5 sm:py-3 px-3 sm:px-4 text-[14px] sm:text-[16px] font-medium rounded-[40px] sm:rounded-[50px] transition-all duration-200 ease-[cubic-bezier(0.25,0.1,0.25,1)]';
 
             return (
               <li key={item.href}>

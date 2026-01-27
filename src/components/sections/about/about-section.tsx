@@ -194,17 +194,17 @@ export function AboutSection() {
   return (
     <div ref={sectionRef} className="w-full overflow-hidden">
       {/* Hero Section */}
-      <section ref={heroRef} className="min-h-screen flex items-center justify-center px-4 py-20">
+      <section ref={heroRef} className="min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 py-16 sm:py-20">
         <div className="container mx-auto max-w-5xl text-center">
           <h1
-            className="hero-animate text-5xl md:text-7xl lg:text-8xl font-bold mb-8"
+            className="hero-animate text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 sm:mb-8 leading-tight"
             style={{ fontFamily: "var(--font-skateblade)" }}
           >
             We Are Your
             <br />
             Digital Partner
           </h1>
-          <p className="hero-animate text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="hero-animate text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4">
             StarByte Technologies is more than an agency. We're a collective of designers, developers, and
             strategists who believe in the transformative power of exceptional digital experiences.
           </p>
@@ -216,13 +216,13 @@ export function AboutSection() {
         <div className="w-full px-0">
           <div
             ref={missionContentRef}
-            className="relative overflow-hidden w-full cursor-none"
-            style={{ minHeight: '520px' }}
+            className="relative overflow-hidden w-full cursor-none md:cursor-none"
+            style={{ minHeight: '400px' }}
           >
             {/* Default Layer - Always Visible */}
-            <div className="relative z-[1] flex flex-col items-center text-center px-8 pt-12 pb-16 md:pt-16 md:pb-20">
+            <div className="relative z-[1] flex flex-col items-center text-center px-4 sm:px-6 md:px-8 pt-8 pb-12 sm:pt-12 sm:pb-16 md:pt-16 md:pb-20">
               <h2
-                className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 sm:mb-8"
                 style={{ fontFamily: "var(--font-skateblade)" }}
               >
                 <DecryptedText
@@ -236,7 +236,7 @@ export function AboutSection() {
                   encryptedClassName="text-muted-foreground/50"
                 />
               </h2>
-              <div className="space-y-6 text-lg md:text-xl text-muted-foreground max-w-3xl">
+              <div className="space-y-4 sm:space-y-6 text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl px-2">
                 <p>
                   To elevate brands through thoughtful design, cutting-edge technology, and unwavering commitment
                   to excellence.
@@ -289,9 +289,9 @@ export function AboutSection() {
               </div>
 
               {/* Gravity Text Overlay */}
-              <div className="relative z-10 px-8 pointer-events-auto">
+              <div className="relative z-10 px-4 sm:px-6 md:px-8 pointer-events-auto">
                 <h3
-                  className="text-5xl md:text-7xl lg:text-8xl font-bold text-white drop-shadow-2xl"
+                  className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl xl:text-8xl font-bold text-white drop-shadow-2xl"
                   style={{ fontFamily: "var(--font-skateblade)" }}
                 >
                   <GravityText
@@ -315,7 +315,7 @@ export function AboutSection() {
 
       {/* Flowing Menu Section */}
       <section ref={flowingMenuRef} className="pt-0 pb-0">
-        <div style={{ height: '600px', position: 'relative' }}>
+        <div className="h-[400px] sm:h-[500px] md:h-[600px] relative">
           <FlowingMenu
             items={skillsItems}
             speed={15}
@@ -329,33 +329,33 @@ export function AboutSection() {
       </section>
 
       {/* Values Section */}
-      <section ref={valuesRef} className="py-32 px-4">
+      <section ref={valuesRef} className="py-16 sm:py-24 md:py-32 px-4 sm:px-6">
         <div className="container mx-auto max-w-7xl">
-          <div className="text-center mb-20">
+          <div className="text-center mb-12 sm:mb-16 md:mb-20">
             <h2
-              className="text-4xl md:text-6xl font-bold mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6"
               style={{ fontFamily: "var(--font-skateblade)" }}
             >
               What Drives Us
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
               Our core values shape every project, every interaction, every line of code we write.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
             {values.map((value, index) => (
               <Card
                 key={index}
-                className="value-card p-8 bg-background/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl group cursor-pointer flex flex-col"
+                className="value-card p-6 sm:p-7 md:p-8 bg-background/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl group cursor-pointer flex flex-col"
               >
-                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="text-4xl sm:text-5xl mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
                   {value.icon}
                 </div>
-                <h3 className="text-2xl font-bold mb-4 min-h-[3.5rem] flex items-center" style={{ fontFamily: "var(--font-skateblade)" }}>
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 min-h-[2.5rem] sm:min-h-[3.5rem] flex items-center" style={{ fontFamily: "var(--font-skateblade)" }}>
                   {value.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">{value.description}</p>
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{value.description}</p>
               </Card>
             ))}
           </div>
@@ -363,23 +363,23 @@ export function AboutSection() {
       </section>
 
       {/* CTA Section */}
-      <section ref={ctaRef} className="py-32 px-4">
+      <section ref={ctaRef} className="py-16 sm:py-24 md:py-32 px-4 sm:px-6">
         <div className="container mx-auto max-w-4xl text-center">
           <h2
-            className="text-4xl md:text-6xl font-bold mb-8"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight"
             style={{ fontFamily: "var(--font-skateblade)" }}
           >
             Let's Build Something
             <br />
             Extraordinary Together
           </h2>
-          <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 sm:mb-10 md:mb-12 max-w-2xl mx-auto px-4">
             Ready to transform your digital presence? Let's start a conversation about your vision.
           </p>
           <a
             href="/contact"
             onMouseEnter={playHoverSound}
-            className="inline-block px-8 py-4 bg-primary text-primary-foreground rounded-full text-lg font-semibold hover:scale-105 transition-transform duration-300 hover:shadow-2xl"
+            className="inline-block px-6 sm:px-8 py-3 sm:py-4 bg-primary text-primary-foreground rounded-full text-base sm:text-lg font-semibold hover:scale-105 transition-transform duration-300 hover:shadow-2xl"
           >
             Get In Touch
           </a>

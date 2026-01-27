@@ -101,12 +101,16 @@ export function ExpertiseSection() {
       });
 
       // Create master timeline that pins the entire section
+      // Reduce scroll distance on mobile
+      const isMobile = window.innerWidth < 768;
+      const scrollDistance = isMobile ? "+=800px" : "+=3000px";
+
       const masterTl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
           pin: true,
           start: "top top",
-          end: "+=3500px",
+          end: scrollDistance,
           scrub: 1,
         },
       });
@@ -261,7 +265,7 @@ export function ExpertiseSection() {
         {/* Hero Text - "We Serve You" */}
         <h1
           ref={heroTextRef}
-          className="absolute text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight text-foreground z-10"
+          className="absolute text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight text-foreground z-10 px-4 text-center"
           style={{ fontFamily: 'var(--font-skateblade)' }}
         >
           We Serve You
@@ -270,7 +274,7 @@ export function ExpertiseSection() {
         {/* Horizontal Scrolling Text */}
         <div
           ref={textRef}
-          className="absolute text-4xl md:text-5xl lg:text-6xl font-medium text-foreground whitespace-nowrap flex gap-[4vw] w-max"
+          className="absolute text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium text-foreground whitespace-nowrap flex gap-[4vw] w-max"
           style={{ fontFamily: 'var(--font-geist-sans)' }}
         />
       </section>
@@ -284,31 +288,31 @@ export function ExpertiseSection() {
               }`}
           >
             <div className="slide-content w-full h-full">
-              <div className="slide-inner h-full overflow-hidden flex items-center justify-center px-4 md:px-8 lg:px-16 xl:px-24">
-                <div className="w-full max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-12 lg:gap-20 xl:gap-24 items-center">
+              <div className="slide-inner h-full overflow-hidden flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-8 md:py-12">
+                <div className="w-full max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20 items-center">
                   {/* Left: Content */}
-                  <div className="space-y-6 max-w-[600px] lg:max-w-[650px] xl:max-w-[700px]">
+                  <div className="space-y-4 sm:space-y-5 md:space-y-6 max-w-full lg:max-w-[650px] xl:max-w-[700px]">
                     <h2
-                      className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.1] hyphens-auto"
-                      style={{ fontFamily: 'var(--font-skateblade)', wordBreak: 'normal', overflowWrap: 'normal' }}
+                      className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.1] hyphens-auto break-words"
+                      style={{ fontFamily: 'var(--font-skateblade)', wordBreak: 'break-word', overflowWrap: 'break-word' }}
                     >
                       {section.title}
                     </h2>
-                    <div 
-                      className="text-base md:text-lg lg:text-xl leading-relaxed opacity-90"
+                    <div
+                      className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed opacity-90"
                       style={{ wordBreak: 'normal', overflowWrap: 'break-word', hyphens: 'auto' }}
                     >
                       <GravityText text={section.description} />
                     </div>
                   </div>
 
-                  {/* Right: CardSwap Animation */}
-                  <div className="flex justify-center lg:justify-end" style={{ height: '600px', position: 'relative', minWidth: '400px' }}>
+                  {/* Right: CardSwap Animation - Hidden on mobile */}
+                  <div className="hidden md:flex justify-center lg:justify-end h-[500px] lg:h-[600px] relative min-w-[280px] lg:min-w-[400px]">
                     <CardSwap
-                      width={400}
-                      height={500}
-                      cardDistance={60}
-                      verticalDistance={70}
+                      width={320}
+                      height={420}
+                      cardDistance={45}
+                      verticalDistance={55}
                       delay={4000}
                       pauseOnHover={true}
                       bringCardForwardOnHover={true}
