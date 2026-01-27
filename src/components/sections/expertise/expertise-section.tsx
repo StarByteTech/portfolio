@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CardSwap, { Card } from "@/components/animations/CardSwap";
 import GravityText from "@/components/animations/GravityText";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 // Use useLayoutEffect on client, useEffect on server
 const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
@@ -15,18 +16,33 @@ const sections = [
     title: "Brand First",
     description: "We don't just design, we become part of your brand. Our approach transforms your brand identity into something elevated and premium. From comprehensive logo revamps to carefully curated color palettes and complete brand systems, we ensure your brand stands out with sophistication and purpose. Let us upscale your identity to reflect the excellence you deliver.",
     theme: "dark",
+    lottieFiles: [
+      "/assets/cards/CatMovement.lottie",
+      "/assets/cards/ColorPallete.lottie",
+      "/assets/cards/ProfileIcon.lottie",
+    ]
   },
   {
     id: "web-experience",
     title: "Web Experience",
     description: "Every pixel tells your story. We craft immersive web experiences that showcase your core values, skills, and identity through premium visuals, smooth animations, and thoughtful interactions. Your website becomes more than a digital presence—it becomes an extension of your brand that captivates and converts.",
     theme: "light",
+    lottieFiles: [
+      "/assets/cards/WebsiteScrolling.lottie",
+      "/assets/cards/ColorDesign.lottie",
+      "/assets/cards/RotatingGem.lottie"
+    ]
   },
   {
     id: "software-solutions",
     title: "Software Solutions",
     description: "From concept to deployment, we deliver web-based and desktop software solutions tailored to your exact needs. Whether you need powerful dashboards, seamless API integrations, or complete software packages, StarByte brings expertise and reliability. Our portfolio includes satisfied clients from government sectors in Pakistan to private enterprises in the UAE.",
     theme: "dark",
+    lottieFiles: [
+      "/assets/cards/ManWorkingOnLaptop.lottie",
+      "/assets/cards/Search.lottie",
+      "/assets/cards/Atom.lottie"
+    ]
   },
 ];
 
@@ -90,7 +106,7 @@ export function ExpertiseSection() {
           trigger: sectionRef.current,
           pin: true,
           start: "top top",
-          end: "+=6000px",
+          end: "+=3500px",
           scrub: 1,
         },
       });
@@ -268,23 +284,26 @@ export function ExpertiseSection() {
               }`}
           >
             <div className="slide-content w-full h-full">
-              <div className="slide-inner h-full overflow-hidden flex items-center justify-center px-8 md:px-16 lg:px-24">
-                <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+              <div className="slide-inner h-full overflow-hidden flex items-center justify-center px-4 md:px-8 lg:px-16 xl:px-24">
+                <div className="w-full max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-12 lg:gap-20 xl:gap-24 items-center">
                   {/* Left: Content */}
-                  <div className="space-y-6">
+                  <div className="space-y-6 max-w-[600px] lg:max-w-[650px] xl:max-w-[700px]">
                     <h2
-                      className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight"
-                      style={{ fontFamily: 'var(--font-skateblade)' }}
+                      className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.1] hyphens-auto"
+                      style={{ fontFamily: 'var(--font-skateblade)', wordBreak: 'normal', overflowWrap: 'normal' }}
                     >
                       {section.title}
                     </h2>
-                    <div className="text-lg md:text-xl leading-relaxed opacity-90">
+                    <div 
+                      className="text-base md:text-lg lg:text-xl leading-relaxed opacity-90"
+                      style={{ wordBreak: 'normal', overflowWrap: 'break-word', hyphens: 'auto' }}
+                    >
                       <GravityText text={section.description} />
                     </div>
                   </div>
 
                   {/* Right: CardSwap Animation */}
-                  <div style={{ height: '600px', position: 'relative' }}>
+                  <div className="flex justify-center lg:justify-end" style={{ height: '600px', position: 'relative', minWidth: '400px' }}>
                     <CardSwap
                       width={400}
                       height={500}
@@ -292,64 +311,28 @@ export function ExpertiseSection() {
                       verticalDistance={70}
                       delay={4000}
                       pauseOnHover={true}
+                      bringCardForwardOnHover={true}
                       skewAmount={section.theme === "dark" ? 3 : -3}
                     >
-                      <Card
-                        className={
-                          section.theme === "dark"
-                            ? "bg-gradient-to-br from-foreground/20 to-foreground/10 border-foreground/30 backdrop-blur-sm"
-                            : "bg-gradient-to-br from-background/20 to-background/10 border-background/30 backdrop-blur-sm"
-                        }
-                      >
-                        <div className="w-full h-full flex flex-col items-center justify-center p-8 space-y-4">
-                          <div
-                            className={`text-7xl font-bold ${section.theme === "dark" ? "text-foreground/60" : "text-background/60"
-                              }`}
-                            style={{ fontFamily: 'var(--font-skateblade)' }}
-                          >
-                            {String(index + 1).padStart(2, "0")}
+                      {section.lottieFiles.map((lottieFile, cardIndex) => (
+                        <Card
+                          key={cardIndex}
+                          className={
+                            section.theme === "dark"
+                              ? "bg-gradient-to-br from-foreground/20 to-foreground/10 border-foreground/30 backdrop-blur-sm"
+                              : "bg-gradient-to-br from-background/20 to-background/10 border-background/30 backdrop-blur-sm"
+                          }
+                        >
+                          <div className="w-full h-full flex items-center justify-center p-8">
+                            <DotLottieReact
+                              src={lottieFile}
+                              loop
+                              autoplay
+                              style={{ width: '100%', height: '100%', maxWidth: '300px', maxHeight: '300px' }}
+                            />
                           </div>
-                          <div
-                            className={`text-2xl font-semibold text-center ${section.theme === "dark" ? "text-foreground/80" : "text-background/80"
-                              }`}
-                          >
-                            {section.title}
-                          </div>
-                        </div>
-                      </Card>
-                      <Card
-                        className={
-                          section.theme === "dark"
-                            ? "bg-gradient-to-br from-foreground/15 to-foreground/5 border-foreground/25 backdrop-blur-sm"
-                            : "bg-gradient-to-br from-background/15 to-background/5 border-background/25 backdrop-blur-sm"
-                        }
-                      >
-                        <div className="w-full h-full flex items-center justify-center p-8">
-                          <div
-                            className={`text-5xl font-bold ${section.theme === "dark" ? "text-foreground/40" : "text-background/40"
-                              }`}
-                            style={{ fontFamily: 'var(--font-skateblade)' }}
-                          >
-                            ★
-                          </div>
-                        </div>
-                      </Card>
-                      <Card
-                        className={
-                          section.theme === "dark"
-                            ? "bg-gradient-to-br from-foreground/10 to-foreground/5 border-foreground/20 backdrop-blur-sm"
-                            : "bg-gradient-to-br from-background/10 to-background/5 border-background/20 backdrop-blur-sm"
-                        }
-                      >
-                        <div className="w-full h-full flex items-center justify-center p-8">
-                          <div
-                            className={`text-4xl font-semibold text-center leading-tight ${section.theme === "dark" ? "text-foreground/50" : "text-background/50"
-                              }`}
-                          >
-                            Premium<br />Quality
-                          </div>
-                        </div>
-                      </Card>
+                        </Card>
+                      ))}
                     </CardSwap>
                   </div>
                 </div>

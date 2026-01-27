@@ -17,10 +17,10 @@ export default function GravityText({
     pullStrength = 0.3
 }: GravityTextProps) {
     const containerRef = useRef<HTMLDivElement>(null);
-    const [letters, setLetters] = useState<string[]>([]);
+    const [words, setWords] = useState<string[]>([]);
 
     useEffect(() => {
-        setLetters(text.split(""));
+        setWords(text.split(" "));
     }, [text]);
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -79,17 +79,21 @@ export default function GravityText({
     return (
         <div
             ref={containerRef}
-            className={`${className} inline-block`}
+            className={`${className}`}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
+            style={{ display: 'inline' }}
         >
-            {letters.map((letter, i) => (
-                <span
-                    key={i}
-                    className="inline-block"
-                    style={{ display: letter === " " ? "inline" : "inline-block", whiteSpace: letter === " " ? "pre" : "normal" }}
-                >
-                    {letter}
+            {words.map((word, wordIndex) => (
+                <span key={wordIndex} className="inline-block whitespace-nowrap mr-[0.25em]">
+                    {word.split("").map((letter, letterIndex) => (
+                        <span
+                            key={`${wordIndex}-${letterIndex}`}
+                            className="inline-block"
+                        >
+                            {letter}
+                        </span>
+                    ))}
                 </span>
             ))}
         </div>

@@ -27,10 +27,10 @@ export function Footer() {
   ];
 
   const socialLinks = [
-    { label: "LinkedIn", href: "#" },
-    { label: "Twitter", href: "#" },
+    { label: "LinkedIn", href: "https://linkedin.com/company/starbyte-tech" },
+    { label: "Threads", href: "#" },
     { label: "Instagram", href: "#" },
-    { label: "Dribbble", href: "#" },
+    { label: "Dribbble", href: "https://dribbble.com/starbyte-tech" },
   ];
 
   // Reinitialize animations whenever the pathname changes
