@@ -7,8 +7,8 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { useHoverSound } from "@/lib/useHoverSound";
+import { IconBrandInstagram, IconBrandThreads, IconBrandLinkedin, IconBrandDribbble } from "@tabler/icons-react";
 
 const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
@@ -348,19 +348,50 @@ export function ContactSection() {
                 })}
               </div>
 
-              {/* Social Links Placeholder */}
+              {/* Social Links */}
               <div className="pt-8">
                 <h3 className="text-xl font-semibold mb-4">Follow Our Journey</h3>
                 <div className="flex gap-4">
-                  {["LinkedIn", "Twitter", "Instagram", "Dribbble"].map((social, index) => (
-                    <div
-                      key={index}
-                      onMouseEnter={playHoverSound}
-                      className="w-12 h-12 rounded-full bg-foreground/5 hover:bg-foreground/10 flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-lg"
-                    >
-                      <span className="text-xs font-semibold">{social[0]}</span>
-                    </div>
-                  ))}
+                  <a
+                    href="https://www.instagram.com/star.byte/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onMouseEnter={playHoverSound}
+                    className="w-12 h-12 rounded-full bg-foreground/5 hover:bg-foreground/10 flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-lg group"
+                    aria-label="Instagram"
+                  >
+                    <IconBrandInstagram className="w-5 h-5 text-foreground/70 group-hover:text-foreground transition-colors" />
+                  </a>
+                  <a
+                    href="https://threads.com/@star.byte"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onMouseEnter={playHoverSound}
+                    className="w-12 h-12 rounded-full bg-foreground/5 hover:bg-foreground/10 flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-lg group"
+                    aria-label="Threads"
+                  >
+                    <IconBrandThreads className="w-5 h-5 text-foreground/70 group-hover:text-foreground transition-colors" />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/company/starbyte-tech"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onMouseEnter={playHoverSound}
+                    className="w-12 h-12 rounded-full bg-foreground/5 hover:bg-foreground/10 flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-lg group"
+                    aria-label="LinkedIn"
+                  >
+                    <IconBrandLinkedin className="w-5 h-5 text-foreground/70 group-hover:text-foreground transition-colors" />
+                  </a>
+                  <a
+                    href="https://dribbble.com/starbyte-tech"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onMouseEnter={playHoverSound}
+                    className="w-12 h-12 rounded-full bg-foreground/5 hover:bg-foreground/10 flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-lg group"
+                    aria-label="Dribbble"
+                  >
+                    <IconBrandDribbble className="w-5 h-5 text-foreground/70 group-hover:text-foreground transition-colors" />
+                  </a>
                 </div>
               </div>
             </div>
