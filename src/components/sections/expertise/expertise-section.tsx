@@ -39,7 +39,7 @@ const sections = [
     description: "From concept to deployment, we deliver web-based and desktop software solutions tailored to your exact needs. Whether you need powerful dashboards, seamless API integrations, or complete software packages, StarByte brings expertise and reliability. Our portfolio includes satisfied clients from government sectors in Pakistan to private enterprises in the UAE.",
     theme: "dark",
     lottieFiles: [
-      "/assets/cards/ManWorkingOnLaptop.lottie",
+      "/assets/cards/ManWorkingonLaptop.lottie",
       "/assets/cards/Search.lottie",
       "/assets/cards/Atom.lottie"
     ]
