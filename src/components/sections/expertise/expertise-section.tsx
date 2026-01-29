@@ -132,10 +132,10 @@ export function ExpertiseSection() {
         textRef.current,
         {
           opacity: 1,
-          ease: "power2.in",
-          duration: 0.05,
+          ease: "power2.out",
+          duration: 0.15,
         },
-        0.15
+        0.12
       );
 
       // Phase 3: Scroll horizontal text (from 20% to 100%)

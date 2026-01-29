@@ -28,8 +28,8 @@ export function Footer() {
 
   const socialLinks = [
     { label: "LinkedIn", href: "https://linkedin.com/company/starbyte-tech" },
-    { label: "Threads", href: "#" },
-    { label: "Instagram", href: "#" },
+    { label: "Threads", href: "https://threads.net/@star.byte" },
+    { label: "Instagram", href: "https://www.instagram.com/star.byte/" },
     { label: "Dribbble", href: "https://dribbble.com/starbyte-tech" },
   ];
 
