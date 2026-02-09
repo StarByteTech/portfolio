@@ -13,7 +13,7 @@ const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffec
 const sections = [
   {
     id: "brand-first",
-    title: "Brand First",
+    title: "Brand Guidlines",
     description: "We don't just design, we become part of your brand. Our approach transforms your brand identity into something elevated and premium. From comprehensive logo revamps to carefully curated color palettes and complete brand systems, we ensure your brand stands out with sophistication and purpose. Let us upscale your identity to reflect the excellence you deliver.",
     theme: "dark",
     lottieFiles: [
@@ -36,7 +36,7 @@ const sections = [
   {
     id: "software-solutions",
     title: "Software Solutions",
-    description: "From concept to deployment, we deliver web-based and desktop software solutions tailored to your exact needs. Whether you need powerful dashboards, seamless API integrations, or complete software packages, StarByte brings expertise and reliability. Our portfolio includes satisfied clients from government sectors in Pakistan to private enterprises in the UAE.",
+    description: "From concept to deployment, we deliver software solutions tailored to your exact needs. Whether you need powerful dashboards or seamless API integrationses, StarByte brings expertise and reliability. Our portfolio includes satisfied clients from government sectors to private enterprises across various industries.",
     theme: "dark",
     lottieFiles: [
       "/assets/cards/ManWorkingonLaptop.lottie",

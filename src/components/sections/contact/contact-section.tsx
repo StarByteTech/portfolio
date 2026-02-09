@@ -175,7 +175,7 @@ export function ContactSection() {
                     onFocus={() => setFocusedField("name")}
                     onBlur={() => setFocusedField(null)}
                     className="w-full transition-all duration-300 focus:scale-[1.02]"
-                    placeholder="Nathan Drake"
+                    placeholder="Name"
                   />
                 </div>
 
@@ -197,7 +197,7 @@ export function ContactSection() {
                     onFocus={() => setFocusedField("email")}
                     onBlur={() => setFocusedField(null)}
                     className="w-full transition-all duration-300 focus:scale-[1.02]"
-                    placeholder="nathan@example.com"
+                    placeholder="name@example.com"
                   />
                 </div>
 
