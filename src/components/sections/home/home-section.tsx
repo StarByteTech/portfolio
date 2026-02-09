@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { gsap } from "gsap";
+import HeroStar from "@/components/animations/HeroStar";
 import TextType from "@/components/animations/TextType";
 import Particles from "@/components/animations/Particles";
 
@@ -49,6 +50,11 @@ export function HomeSection() {
 
   return (
     <div className="relative w-full">
+      {/* Star Animation Section */}
+      <section className="relative h-screen w-full overflow-hidden bg-black">
+        <HeroStar />
+      </section>
+
       {/* Hero Section with Particles */}
       <section ref={heroRef} className="relative h-screen w-full overflow-hidden">
         {/* Particles Background - Positioned absolutely to fill container */}
