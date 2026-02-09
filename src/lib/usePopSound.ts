@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-export function useHoverSound(soundPath: string = "/sound/hover.mp3") {
+export function useHoverSound(soundPath: string = "/sound/pop.mp3") {
     const audioRef = useRef<HTMLAudioElement | null>(null);
 
     useEffect(() => {
