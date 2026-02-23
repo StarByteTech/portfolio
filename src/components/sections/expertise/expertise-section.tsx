@@ -293,7 +293,7 @@ export function ExpertiseSection() {
                   {/* Left: Content */}
                   <div className="space-y-4 sm:space-y-5 md:space-y-6 max-w-full lg:max-w-[650px] xl:max-w-[700px]">
                     <h2
-                      className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.1] hyphens-auto break-words"
+                      className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.1] hyphens-auto break-words text-primary"
                       style={{ fontFamily: 'var(--font-skateblade)', wordBreak: 'break-word', overflowWrap: 'break-word' }}
                     >
                       {section.title}

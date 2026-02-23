@@ -88,16 +88,9 @@ export function CurveSwipeProvider({ children }: CurveSwipeProviderProps) {
                     viewBox="0 0 100 100"
                     preserveAspectRatio="none"
                 >
-                    <defs>
-                        <linearGradient id="swipe-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stopColor="#2d0b4e" />
-                            <stop offset="50%" stopColor="#4a148c" />
-                            <stop offset="100%" stopColor="#1a0033" />
-                        </linearGradient>
-                    </defs>
                     <path
                         ref={pathRef}
-                        fill="url(#swipe-grad)"
+                        fill="#cc007e"
                         d="M 0 0 V 0 Q 50 0 100 0 V 0 z"
                     />
                 </svg>
