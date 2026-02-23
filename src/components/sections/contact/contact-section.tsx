@@ -139,7 +139,7 @@ export function ContactSection() {
       <section ref={heroRef} className="min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 py-16 sm:py-20">
         <div className="container mx-auto max-w-5xl text-center">
           <h1
-            className="hero-animate text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 sm:mb-8 leading-tight"
+            className="hero-animate text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 sm:mb-8 leading-tight text-secondary"
             style={{ fontFamily: "var(--font-skateblade)" }}
           >
             Let's Create
@@ -160,7 +160,7 @@ export function ContactSection() {
             {/* Form */}
             <div>
               <h2
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8 text-primary"
                 style={{ fontFamily: "var(--font-skateblade)" }}
               >
                 Send Us a Message
@@ -183,7 +183,7 @@ export function ContactSection() {
                     onChange={handleChange}
                     onFocus={() => setFocusedField("name")}
                     onBlur={() => setFocusedField(null)}
-                    className="w-full transition-all duration-300 focus:scale-[1.02]"
+                    className="w-full transition-all duration-300 focus:scale-[1.02] focus:border-secondary/50"
                     placeholder="Name"
                   />
                 </div>
@@ -205,7 +205,7 @@ export function ContactSection() {
                     onChange={handleChange}
                     onFocus={() => setFocusedField("email")}
                     onBlur={() => setFocusedField(null)}
-                    className="w-full transition-all duration-300 focus:scale-[1.02]"
+                    className="w-full transition-all duration-300 focus:scale-[1.02] focus:border-secondary/50"
                     placeholder="name@example.com"
                   />
                 </div>
@@ -226,7 +226,7 @@ export function ContactSection() {
                     onChange={handleChange}
                     onFocus={() => setFocusedField("company")}
                     onBlur={() => setFocusedField(null)}
-                    className="w-full transition-all duration-300 focus:scale-[1.02]"
+                    className="w-full transition-all duration-300 focus:scale-[1.02] focus:border-secondary/50"
                     placeholder="Your Company"
                   />
                 </div>
@@ -247,7 +247,7 @@ export function ContactSection() {
                     onChange={handleChange}
                     onFocus={() => setFocusedField("message")}
                     onBlur={() => setFocusedField(null)}
-                    className="w-full min-h-[200px] transition-all duration-300 focus:scale-[1.02]"
+                    className="w-full min-h-[200px] transition-all duration-300 focus:scale-[1.02] focus:border-secondary/50"
                     placeholder="Tell us about your project..."
                   />
                 </div>
@@ -268,7 +268,7 @@ export function ContactSection() {
             <div ref={infoRef} className="space-y-6 sm:space-y-8">
               <div>
                 <h2
-                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8"
+                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8 text-primary"
                   style={{ fontFamily: "var(--font-skateblade)" }}
                 >
                   Connect With Us

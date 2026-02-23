@@ -25,7 +25,7 @@ export function Header() {
       items={navItems}
       baseColor="#fff"
       pillColor="#141005"
-      hoveredPillTextColor="#141005"
+      hoveredPillTextColor="#cc007e"
       pillTextColor="#fff"
       initialLoadAnimation={true}
       onNavigate={handleNavigate}

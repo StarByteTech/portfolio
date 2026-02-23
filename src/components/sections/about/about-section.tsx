@@ -36,9 +36,9 @@ const values = [
 ];
 
 const skillsItems = [
-  { link: '#', text: 'Brand Design', image: '/assets/purple-design.svg' },
-  { link: '#', text: 'Web Design', image: '/assets/purple-css.svg' },
-  { link: '#', text: 'Software Development', image: '/assets/purple-desktop.svg' }
+  { link: '', text: 'Brand Design', image: '/assets/purple-design.svg' },
+  { link: '', text: 'Web Design', image: '/assets/purple-css.svg' },
+  { link: '', text: 'Software Development', image: '/assets/purple-desktop.svg' }
 ];
 
 export function AboutSection() {
@@ -197,7 +197,7 @@ export function AboutSection() {
       <section ref={heroRef} className="min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 py-16 sm:py-20">
         <div className="container mx-auto max-w-5xl text-center">
           <h1
-            className="hero-animate text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 sm:mb-8 leading-tight"
+            className="hero-animate text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 sm:mb-8 leading-tight text-secondary"
             style={{ fontFamily: "var(--font-skateblade)" }}
           >
             We Are Your
@@ -270,7 +270,7 @@ export function AboutSection() {
               {/* LiquidEther Background */}
               <div className="absolute inset-0 pointer-events-none">
                 <LiquidEther
-                  colors={['#4a148c', '#6a1b9a', '#7b1fa2', '#9c27b0']}
+                  colors={['#cc007e', '#38b6ff', '#9c27b0', '#cc007e']}
                   mouseForce={25}
                   cursorSize={120}
                   isViscous={true}
@@ -306,7 +306,7 @@ export function AboutSection() {
             {/* Custom Cursor */}
             <div
               ref={missionCursorRef}
-              className="absolute w-8 h-8 border-2 border-white rounded-full pointer-events-none z-[3]"
+              className="absolute w-8 h-8 border-2 border-white rounded-full pointer-events-none z-[3] shadow-[0_0_20px_rgba(204,0,126,0.6)]"
               style={{ transform: "translate(-50%, -50%)" }}
             />
           </div>
@@ -319,11 +319,11 @@ export function AboutSection() {
           <FlowingMenu
             items={skillsItems}
             speed={15}
-            textColor="#ffffff"
-            bgColor="#0a0a0a"
-            marqueeBgColor="#ffffff"
-            marqueeTextColor="#0a0a0a"
-            borderColor="#ffffff"
+            textColor="#0a0a0a"
+            bgColor="#f5f5f5"
+            marqueeBgColor="#0a0a0a"
+            marqueeTextColor="#cc007e"
+            borderColor="#0a0a0a"
           />
         </div>
       </section>
@@ -333,7 +333,7 @@ export function AboutSection() {
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-12 sm:mb-16 md:mb-20">
             <h2
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-primary"
               style={{ fontFamily: "var(--font-skateblade)" }}
             >
               What Drives Us
@@ -349,10 +349,10 @@ export function AboutSection() {
                 key={index}
                 className="value-card p-6 sm:p-7 md:p-8 bg-background/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl group cursor-pointer flex flex-col"
               >
-                <div className="text-4xl sm:text-5xl mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="text-4xl sm:text-5xl mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300 group-hover:text-primary">
                   {value.icon}
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 min-h-[2.5rem] sm:min-h-[3.5rem] flex items-center" style={{ fontFamily: "var(--font-skateblade)" }}>
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 min-h-[2.5rem] sm:min-h-[3.5rem] flex items-center group-hover:text-primary transition-colors duration-300" style={{ fontFamily: "var(--font-skateblade)" }}>
                   {value.title}
                 </h3>
                 <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{value.description}</p>
@@ -366,7 +366,7 @@ export function AboutSection() {
       <section ref={ctaRef} className="py-16 sm:py-24 md:py-32 px-4 sm:px-6">
         <div className="container mx-auto max-w-4xl text-center">
           <h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight text-secondary"
             style={{ fontFamily: "var(--font-skateblade)" }}
           >
             Let's Build Something

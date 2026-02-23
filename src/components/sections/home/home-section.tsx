@@ -78,7 +78,7 @@ export function HomeSection() {
         {/* Particles Background */}
         <div className="absolute inset-0 w-full h-full">
           <Particles
-            particleColors={['#ffffff', '#ffffff']}
+            particleColors={['#cc007e', '#38b6ff', '#F5F5F5']}
             particleCount={200}
             particleSpread={10}
             speed={0.1}
@@ -92,7 +92,7 @@ export function HomeSection() {
 
         {/* Left Aligned Text Overlay */}
         <div className="absolute inset-0 z-10 flex flex-col items-start justify-center pl-8 md:pl-16 lg:pl-24 gap-4 pointer-events-none">
-          <h1 className="hero-animate text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white select-none drop-shadow-[0_0_30px_rgba(0,0,0,0.5)]" style={{ fontFamily: 'var(--font-skateblade)' }}>
+          <h1 className="hero-animate text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight select-none drop-shadow-[0_0_30px_rgba(0,0,0,0.5)] text-secondary" style={{ fontFamily: 'var(--font-skateblade)' }}>
             <TextType
               text={[titleText]}
               typingSpeed={typingSpeed}
@@ -123,7 +123,7 @@ export function HomeSection() {
       <button
         onClick={scrollToTop}
         aria-label="Back to top"
-        className={`fixed bottom-6 right-6 z-50 flex items-center justify-center w-12 h-12 rounded-full border border-primary/40 bg-black/60 backdrop-blur-md text-primary shadow-[0_0_20px_rgba(139,92,246,0.25)] hover:bg-primary/20 hover:border-primary hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] transition-all duration-300 cursor-pointer ${
+        className={`fixed bottom-6 right-6 z-50 flex items-center justify-center w-12 h-12 rounded-full border border-primary/40 bg-black/60 backdrop-blur-md text-primary shadow-[0_0_20px_rgba(204,0,126,0.25)] hover:bg-primary/20 hover:border-primary hover:shadow-[0_0_30px_rgba(204,0,126,0.5)] transition-all duration-300 cursor-pointer ${
           showBackToTop
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 translate-y-4 pointer-events-none"

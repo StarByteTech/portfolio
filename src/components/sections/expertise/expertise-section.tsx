@@ -265,7 +265,7 @@ export function ExpertiseSection() {
         {/* Hero Text - "We Serve You" */}
         <h1
           ref={heroTextRef}
-          className="absolute text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight text-foreground z-10 px-4 text-center"
+          className="absolute text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight z-10 px-4 text-center text-secondary"
           style={{ fontFamily: 'var(--font-skateblade)' }}
         >
           We Serve You
